@@ -1,30 +1,35 @@
 const noBtn = document.getElementById("noBtn");
 const yesBtn = document.getElementById("yesBtn");
-const buttonsDiv = document.querySelector(".buttons");
+const buttonsBox = document.querySelector(".buttons");
 
 let dodgeCount = 0;
 const MAX_DODGES = 10;
 
-noBtn.addEventListener("mouseover", () => {
+// Initial position (for reset)
+const initialX = 0;
+const initialY = 0;
+
+noBtn.addEventListener("mouseenter", () => {
   dodgeCount++;
 
-  const containerRect = buttonsDiv.getBoundingClientRect();
+  const boxRect = buttonsBox.getBoundingClientRect();
   const btnRect = noBtn.getBoundingClientRect();
 
-  const maxX = containerRect.width - btnRect.width;
-  const maxY = containerRect.height - btnRect.height;
+  const maxX = boxRect.width - btnRect.width;
+  const maxY = boxRect.height - btnRect.height;
 
   const x = Math.random() * maxX;
   const y = Math.random() * maxY;
 
-  noBtn.style.left = `${x}px`;
-  noBtn.style.top = `${y}px`;
+  // 🔥 smooth movement using transform
+  noBtn.style.transform = `translate(${x}px, ${y}px)`;
 
-  // 🔁 Loop back after 10 tries
+  // 🔁 reset after 10 tries
   if (dodgeCount >= MAX_DODGES) {
-    noBtn.style.left = "120px";
-    noBtn.style.top = "0";
-    dodgeCount = 0;
+    setTimeout(() => {
+      noBtn.style.transform = `translate(${initialX}px, ${initialY}px)`;
+      dodgeCount = 0;
+    }, 300);
   }
 });
 
