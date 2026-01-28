@@ -2,54 +2,61 @@ body {
   overflow: hidden; /* ⛔ no scrolling */
 }
 
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   height: 100vh;
+  overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
   background: linear-gradient(135deg, #ff9a9e, #fad0c4);
-  font-family: 'Arial', sans-serif;
+  font-family: Arial, sans-serif;
 }
 
 .container {
   text-align: center;
-  width: 100%;
-  height: 100%;
-  position: relative; /* IMPORTANT */
+  position: relative;
 }
 
-
 h1 {
-  font-size: 2.5rem;
-  color: #fff;
+  color: white;
+  font-size: 2.6rem;
+  margin-bottom: 40px;
 }
 
 .buttons {
-  margin-top: 40px;
   position: relative;
-  height: 200px;
+  width: 320px;
+  height: 120px;
+  margin: 0 auto;
 }
-
 
 button {
   padding: 15px 35px;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   border: none;
   border-radius: 30px;
   cursor: pointer;
-  transition: transform 0.2s ease;
 }
 
 #yesBtn {
   background-color: #ff4d6d;
   color: white;
+  position: absolute;
+  right: 0;
 }
 
 #noBtn {
-  background-color: #ffffff;
+  background-color: white;
   color: #ff4d6d;
   position: absolute;
-  left: 120px;
+  left: 0;
   top: 0;
+
+  /* 🔥 animation magic */
+  transition: transform 0.25s ease-in-out;
 }
