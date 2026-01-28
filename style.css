@@ -60,3 +60,14 @@ button {
   /* 🔥 animation magic */
   transition: transform 0.25s ease-in-out;
 }
+#noBtn {
+  position: absolute;
+  left: 0;
+  top: 0;
+  transition: transform 0.25s ease-in-out;
+}
+
+#yesBtn {
+  position: absolute;
+  right: 0;
+}
