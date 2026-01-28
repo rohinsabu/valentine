@@ -4,7 +4,6 @@ const buttonsBox = document.querySelector(".buttons");
 
 let dodgeCount = 0;
 const MAX_DODGES = 10;
-
 // Initial position (for reset)
 const initialX = 0;
 const initialY = 0;
